@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blushberry Bridal Makeup Artists</title>
+  
+
+  <style>
+
+    header {
+  position: relative;
+}
+
+.about-link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #3D1163;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.about-link:hover {
+  background-color: #fa0a8a;
+}
+
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('Screenshot 2025-07-19 090506.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background-color: rgba(255, 103, 141, 0.9);
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo-container h1 {
+      font-size: 40px;
+      margin: 0;
+    }
+
+    header p {
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .filter-container input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: rgba(255,255,255,0.95);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgb(0, 0, 0);
+      overflow: hidden;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #e91e63;
+    }
+
+    .card-content p {
+      margin: 6px 0;
+      color: #555;
+    }
+
+    .rating {
+      color: #ffa500;
+    }
+
+    /* Details page styles */
+    .details-container {
+      display: none;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .details-left img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .details-left h2 {
+      color: #e91e63;
+    }
+
+    .details-right {
+      background-color: rgba(255,255,255,0.95);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px #3D1163;
+      padding: 20px;
+    }
+
+    .details-right button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #e4489e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .details-right button:hover {
+      background-color: #c73784;
+    }
+
+    @media (max-width: 800px) {
+      .details-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+  <div class="logo-container">
+    <img src="Screenshot 2025-07-16 215113.png" alt="Blushberry Logo" />
+    <h1>Blushberry</h1>
+  </div>
+  <a href="about.html" class="about-link">About Me</a>
+  <p>FIND THE BEST AND BUDJET MAKEUP IN PREMIUM BRANDS </p>
+</header>
+
+
+  <div class="filter-container" id="filterContainer">
+    <input type="text" id="searchBar" placeholder="Search by name...">
+  </div>
+
+  <div class="card-container" id="cardContainer"></div>
+
+  <div class="details-container" id="detailsContainer">
+    <div class="details-left" id="detailsLeft"></div>
+    <div class="details-right">
+      <button id="callBtn">Call</button>
+      <button id="whatsappBtn">WhatsApp</button>
+      <button id="instagramBtn">Instagram</button>
+      <button onclick="goBack()">Back</button>
+    </div>
+  </div>
+
+  <script>
+    const artists = [
+      {
+        name: " Aqua Makeup",
+        price: "₹11,000",
+        rating: 4.5,
+        image: "aqua mackep.jpg",
+        description: " Aqua makeup is a water-activated makeup, commonly used in theatre, face painting, and body art.  It comes in cake or compact form and needs water to activate and apply smoothly.  Brands like Kryolan Aquacolor are popular because they provide vibrant, opaque colours  Aqua makeup dries quickly to a smudge-proof finish but is not waterproof unless sealed with a fixer.  It is ideal for character makeup, fancy dress, stage shows, and SFX base designs due to its safe formulation and easy removal with water.",
+        phone: "9344450591",
+        whatsapp: "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+      {
+        name: "HD mackeup",
+        price: "₹12,000",
+        rating: 4.2,
+        image: "hd mackep.jpg",
+        description: "HD makeup (High Definition makeup) is specially formulated for camera clarity, making skin look flawless even under HD cameras and bright lights. It uses micronised pigments and light-diffusing ingredients to give a smooth, natural, and non-cakey finish HD makeup is ideal for bridal, photography, film, and television as it hides fine lines, pores, and imperfections seamlessly. It can be done using liquid, cream, or airbrush products that blend perfectly with the skins texture. Popular HD makeup brands include Makeup Forever Ultra HD, Kryolan HD, PAC HD, and Huda Beauty for a professional and long-lasting result.",
+        phone: "9344450591",
+        whatsapp: "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+      {
+        name: " Airbrush Makeup",
+        price: "₹18,000",
+        rating: 4.8,
+        image: "air brus mackep.jpg",
+        description: "Airbrush makeup is a makeup technique where foundation and other products are sprayed onto the skin using an airbrush gun and compressor. It uses special liquid foundations that are thinner in consistency, creating a lightweight, flawless, and even coverage without heavy layers. Airbrush makeup is long-lasting, transfer-proof, and water-resistant, making it ideal for bridal, photoshoots, film shoots, and HD video work.  It gives a natural, skin-like finish, covering imperfections smoothly while still feeling light on the skin. Brands like Temptu, Kryolan, and Dinair offer professional airbrush kits widely used by certified makeup artists for premium services.",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+     {
+        name: "marriage makeup",
+        price: "₹5,000",
+        rating: 4.8,
+        image: "bella-pon-fruitsia-y9HsMX3-mUY-unsplash.jpg",
+        description: "Simple marriage makeup focuses on enhancing natural beauty with light to medium coverage foundation, giving a fresh and elegant look. It includes basic primer, foundation, concealer, compact, soft blush, light contour, and highlighter to create a clean and radiant base.  Eye makeup is kept subtle with neutral eyeshadows, thin eyeliner, kajal, and mascara, paired with well-groomed brows. Lips are done in soft pink, nude, or peach shades, matching the outfit and jewellery for a graceful appearance. This makeup style is perfect for small marriage ceremonies, court marriages, pre-wedding rituals, or mature brides who prefer a minimal and traditional look..",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+       {
+        name: "Classic Skin Makeup  ",
+        price: "₹13,000",
+        rating: 4.8,
+        image: "pexels-vikashkr50-27155550.jpg",
+        description: " Classic skin makeup refers to a simple, elegant, and timeless makeup style enhancing natural beauty. It usually includes light to medium coverage foundation, subtle blush, and minimal contouring.  The focus is on even-toned, fresh, and healthy-looking skin without heavy layers or dramatic finishes.  This makeup style suits daily wear, office, mature skin, and traditional bridal looks.  Products used are generally matte or satin finish foundations, neutral eyeshadows, and soft lip colours for a graceful appearance",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+       {
+        name: "Traditional Temple Bridal Makeup ",
+        price: "₹10,000",
+        rating: 4.8,
+        image: "temple mackep.jpg",
+        description: "Traditional temple bridal makeup is inspired by South Indian temple brides, especially seen in Tamil Nadu and Kerala weddings, where the bride looks like a goddess adorned in silk saree and temple jewellery. The makeup base is full coverage, giving a flawless, long-lasting finish to withstand rituals and photography throughout the day. Eyes are bold and defined with deep kajal, thick eyeliner, and often reddish-brown or gold eyeshadow, enhancing traditional beauty  Lips are usually bright shades like deep red, maroon, or dark pink, matching the saree and jewellery for a regal bridal appearance. The overall look is completed with kumkum bindi, sindoor, traditional gold temple jewellery, maang tikka, nose ring, and flowers (jasmine or rose) in hair styling to give a divine and elegant temple bride finish",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+      {
+        name: "  No Makeup Look",
+        price: "₹5,000",
+        rating: 4.8,
+        image: "female-model-wedding-bridal-makeup.jpg",
+        description: "The No Makeup Look is a natural and fresh makeup style that enhances your features without looking like you’re wearing obvious makeup   The base uses lightweight BB cream, CC cream, or sheer foundation, just enough to even out skin tone while letting the natural skin texture show. Concealer is used only where needed — for dark circles, blemishes, or redness — blended seamlessly for a skin-like finish.  Eyes are kept simple with neutral eyeshadow (or none at all), well-groomed brows, a touch of mascara, and maybe a nude kajal if needed. Lips are done with nude lipstick, tinted balm, or soft gloss, and a natural blush or cream tint is added for a healthy glow — creating an effortlessly clean, fresh look.",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+     
+      {
+        name: " Bharatanatyam and Classical Dance Make",
+        price: "₹3,000",
+        rating: 4.8,
+        image: "nachiket-galande-FJspaxcSwLI-unsplash.jpg",
+        description: "Bharatanatyam makeup is a traditional and bold makeup style used for stage performances to highlight the dancer’s expressions and features from a distance. The base makeup is full coverage, usually done with cream foundation and setting powder to ensure it stays intact under strong stage lights and sweat.  Eye makeup is very dramatic – includes thick eyeliner, bold kajal on waterline, extended wing, heavy mascara, and bright eyeshadows (red, orange, gold) to enhance eye expressions (abhinaya).  Lips are painted in bright red or deep maroon shades, and a big round red bindi is placed on the forehead for a traditional look. The overall makeup is completed with traditional jewellery (temple jewellery), hair tied with flowers, and forehead & eyebrow decorations to give a divine, goddess-like appearance suitable for classical dance presentations.",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+       {
+        name: "  Mehendi Makeup",
+        price: "₹14,000",
+        rating: 4.8,
+        image: "pexels-meenee-6843085.jpg",
+        description: "Mehendi makeup is done for the bride on her mehendi (henna) ceremony day, focusing on a fresh, vibrant, and natural look to match the colourful and fun event.  The base is light to medium coverage, giving a glowing, dewy finish, as the bride often wears light or floral outfits and minimal jewellery on this day.  Eye makeup is kept soft and bright, using peach, pink, gold, or pastel shades with thin eyeliner and kajal to define eyes without making them too dramatic. Blush and highlighter are used generously to give a fresh, radiant appearance, and lips are done in peach, pink, coral, or nude shades for a youthful look. Hairstyles are usually braids, messy buns, or open curls decorated with fresh flowers or floral jewellery, completing the mehendi ceremony look beautifully.",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+       {
+        name: "Party Makeup and Glam Makeup  ",
+        price: "₹8,000",
+        rating: 4.8,
+        image: "pexels-rajatsahuphotography-32726997.jpg",
+        description: "Party makeup is a makeup style done for functions, birthdays, anniversaries, or evening events to enhance natural beauty with a slightly glamorous touch. The base is medium to full coverage, giving a smooth and even skin tone with a subtle glow suitable for photographs.  Eye makeup is soft yet defined, usually with neutral, pink, bronze, or gold eyeshadows, eyeliner, and mascara for a polished look.",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+      {
+        name: " Christian Bridal Makeup  ",
+        price: "₹15,000",
+        rating: 4.8,
+        image: "pexels-x-l-18908569-6500556.jpg",
+        description: "Christian bridal makeup is done for brides getting married in church weddings, usually wearing white gowns with veils and minimal traditional jewellery.  The base is medium to full coverage, creating a flawless, radiant, and natural-looking skin finish that looks beautiful in photographs and under church lighting. Eye makeup is soft and elegant, using neutral, champagne, pink, or bronze eyeshadows with defined eyeliner and natural-looking false lashes for a romantic and graceful look. lush and highlighter are applied lightly to give a healthy glow, and lips are usually done in soft pink, nude, rose, or mauve shades, matching the bouquet and overall bridal theme.  The final look is timeless, elegant, and sophisticated, enhancing the bride’s natural beauty while maintaining a subtle and graceful appearance suitable for Christian wedding ceremonies.",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+       {
+        name: " Engagement Makeup ",
+        price: "₹15,000",
+        rating: 4.8,
+        image: "bella-pon-fruitsia-wcgCFUi_Zws-unsplash.jpg",
+        description: "Engagement makeup is done for the bride-to-be on her ring ceremony day, focusing on a soft glam and elegant look to make her appear fresh and beautiful.  The base is medium to full coverage, using HD or regular foundation for a flawless, glowing finish suitable for photography and stage lighting  Eye makeup is soft yet defined, usually with pink, peach, gold, or bronze eyeshadows, thin or winged eyeliner, and mascara or natural false lashes to enhance the eyes gracefully.  Blush and highlighter are applied moderately to give a healthy, radiant glow, and lips are done in soft pink, nude, peach, or rose shades to match the outfit and jewellery.  airstyles are kept elegant with curls, half-up styles, braids, or buns, often decorated with hair accessories or flowers for a graceful engagement appearance.",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+       {
+        name: " Photoshoot Makeup ",
+        price: "₹25,000",
+        rating: 4.8,
+        image: "naeem-ad-JDYxnaxFJws-unsplash.jpg",
+        description: "Photoshoot makeup is specially done for model shoots, pre-wedding shoots, portfolios, magazines, or brand promotions to ensure the face looks perfect on camera.  The base is full coverage using HD or airbrush foundation, giving a smooth, flawless, and even finish that photographs well under studio or natural lighting. Eye makeup is done according to the concept – it can be soft glam, bold glam, smokey, glitter, or creative editorial style with well-defined brows and lashes.  ontour, blush, and highlighter are applied properly to sculpt the face, add dimension, and avoid a flat look in photos. Lip colours are chosen as per theme – nude, peach, pink for natural looks, or bold reds, maroons, and bright colours for high fashion shoots",
+        phone:  "9344450591",
+        whatsapp:  "9344450591",
+        instagram: "mackeover_bydhivya"
+      },
+      
+    ];
+
+    const cardContainer = document.getElementById("cardContainer");
+    const searchBar = document.getElementById("searchBar");
+    const filterContainer = document.getElementById("filterContainer");
+    const detailsContainer = document.getElementById("detailsContainer");
+    const detailsLeft = document.getElementById("detailsLeft");
+    const callBtn = document.getElementById("callBtn");
+    const whatsappBtn = document.getElementById("whatsappBtn");
+    const instagramBtn = document.getElementById("instagramBtn");
+
+    function renderCards(data) {
+      cardContainer.innerHTML = "";
+      data.forEach((artist, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${artist.image}" alt="${artist.name}">
+          <div class="card-content">
+            <h3>${artist.name}</h3>
+            <p><strong>Price:</strong> ${artist.price}</p>
+            <p><strong>Rating:</strong> <span class="rating">★ ${artist.rating}</span></p>
+          </div>
+        `;
+        card.addEventListener("click", () => viewDetails(index));
+        cardContainer.appendChild(card);
+      });
+    }
+
+    function filterCards() {
+      const searchValue = searchBar.value.toLowerCase();
+      const filtered = artists.filter(artist =>
+        artist.name.toLowerCase().includes(searchValue)
+      );
+      renderCards(filtered);
+    }
+
+    function viewDetails(index) {
+      const artist = artists[index];
+      cardContainer.style.display = "none";
+      filterContainer.style.display = "none";
+      detailsContainer.style.display = "grid";
+      detailsLeft.innerHTML = `
+        <img src="${artist.image}" alt="${artist.name}">
+        <h2>${artist.name}</h2>
+        <p><strong>Price:</strong> ${artist.price}</p>
+        <p><strong>Rating:</strong> ★ ${artist.rating}</p>
+        <p>${artist.description}</p>
+      `;
+
+      callBtn.onclick = () => alert("Call: +91 " + artist.phone);
+      whatsappBtn.onclick = () => window.open(`https://wa.me/91${artist.whatsapp}`, "_blank");
+      instagramBtn.onclick = () => window.open(`https://www.instagram.com/makeover_bydhivya?igsh=YjZuOWpzYmRhZXg2/${artist.instagram}`, "_blank");
+    }
+
+    function goBack() {
+      detailsContainer.style.display = "none";
+      cardContainer.style.display = "grid";
+      filterContainer.style.display = "flex";
+    }
+
+    searchBar.addEventListener("input", filterCards);
+
+    renderCards(artists);
+  </script>
+
+</body>
+</html>
+
